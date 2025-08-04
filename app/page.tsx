@@ -1,103 +1,212 @@
-import Image from "next/image";
+import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Star, Award, Leaf, Users } from "lucide-react"
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Premium Wooden Hangers Manufacturing | WoodCraft Hangers",
+  description:
+    "Discover our premium wooden hangers crafted with precision. Sustainable, durable, and elegant storage solutions for your wardrobe. Custom manufacturing available.",
+}
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-light-beige to-warm-beige overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Wooden hangers craftsmanship"
+            fill
+            className="object-cover opacity-20 transition-transform duration-700 hover:scale-105"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in-up">
+          <h1 className="font-display text-5xl md:text-7xl font-bold text-medium-brown mb-6 animate-float">
+            WoodCraft Hangers
+          </h1>
+          <p className="text-xl md:text-2xl text-medium-brown mb-8 max-w-2xl mx-auto opacity-80 animate-fade-in-up animate-delay-200">
+            Premium wooden hangers crafted with precision, sustainability, and timeless elegance
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-400">
+            <Button
+              asChild
+              size="lg"
+              className="bg-medium-brown hover:bg-medium-brown/90 text-cream hover-lift hover-glow group"
+            >
+              <Link href="/products">
+                <span className="group-hover:scale-105 transition-transform duration-200">View Our Products</span>
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-medium-brown text-medium-brown hover:bg-medium-brown hover:text-cream bg-transparent hover-lift group"
+            >
+              <Link href="/about">
+                <span className="group-hover:scale-105 transition-transform duration-200">Our Story</span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-cream">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl font-bold text-medium-brown mb-4">Why Choose WoodCraft Hangers?</h2>
+            <p className="text-lg text-medium-brown opacity-80 max-w-2xl mx-auto">
+              Our commitment to quality, sustainability, and craftsmanship sets us apart in the industry
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Leaf,
+                title: "Sustainable",
+                desc: "Eco-friendly materials and responsible manufacturing processes",
+                bg: "bg-sage-green",
+                delay: "animate-delay-100",
+              },
+              {
+                icon: Award,
+                title: "Premium Quality",
+                desc: "Handcrafted with attention to detail and superior materials",
+                bg: "bg-medium-brown",
+                delay: "animate-delay-200",
+              },
+              {
+                icon: Users,
+                title: "Custom Solutions",
+                desc: "Tailored designs to meet your specific requirements",
+                bg: "bg-warm-beige",
+                delay: "animate-delay-300",
+              },
+              {
+                icon: Star,
+                title: "Trusted Brand",
+                desc: "Over 20 years of excellence in wooden hanger manufacturing",
+                bg: "bg-light-beige",
+                delay: "animate-delay-400",
+              },
+            ].map((item, index) => (
+              <Card
+                key={index}
+                className={`text-center border-none shadow-lg bg-white hover-lift hover-glow animate-fade-in-up ${item.delay} group cursor-pointer`}
+              >
+                <CardContent className="p-8">
+                  <div
+                    className={`w-16 h-16 ${item.bg} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <item.icon className="w-8 h-8 text-cream group-hover:rotate-12 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold text-medium-brown mb-2 group-hover:text-medium-brown/80 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-medium-brown opacity-80 group-hover:opacity-100 transition-opacity">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Showcase */}
+      <section className="py-20 bg-light-beige">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl font-bold text-medium-brown mb-4">Our Featured Products</h2>
+            <p className="text-lg text-medium-brown opacity-80 max-w-2xl mx-auto">
+              Discover our range of premium wooden hangers designed for every need
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Premium Suit Hangers",
+                desc: "Elegant hangers designed for suits and formal wear",
+                img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                delay: "animate-delay-100",
+              },
+              {
+                title: "Dress Hangers",
+                desc: "Specially designed for dresses and delicate garments",
+                img: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                delay: "animate-delay-200",
+              },
+              {
+                title: "Custom Solutions",
+                desc: "Bespoke hangers tailored to your specific needs",
+                img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                delay: "animate-delay-300",
+              },
+            ].map((product, index) => (
+              <Card
+                key={index}
+                className={`overflow-hidden border-none shadow-lg hover-lift hover-glow animate-fade-in-up ${product.delay} group cursor-pointer`}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={product.img || "/placeholder.svg"}
+                    alt={product.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-medium-brown/0 group-hover:bg-medium-brown/10 transition-colors duration-300"></div>
+                </div>
+                <CardContent className="p-6 bg-white">
+                  <h3 className="font-display text-xl font-semibold text-medium-brown mb-2 group-hover:text-medium-brown/80 transition-colors">
+                    {product.title}
+                  </h3>
+                  <p className="text-medium-brown mb-4 group-hover:text-medium-brown/80 transition-colors">
+                    {product.desc}
+                  </p>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-medium-brown text-medium-brown hover:bg-medium-brown hover:text-cream bg-transparent hover-scale group/btn"
+                  >
+                    <Link href={index === 2 ? "/contact" : "/products"}>
+                      <span className="group-hover/btn:scale-105 transition-transform duration-200">
+                        {index === 2 ? "Get Quote" : "Learn More"}
+                      </span>
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-medium-brown text-cream">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="font-display text-4xl font-bold mb-4">Ready to Elevate Your Wardrobe?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            Contact us today to discuss your wooden hanger needs and discover how we can help you
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-cream text-cream hover:bg-cream hover:text-medium-brown bg-transparent"
+            >
+              <Link href="/contact">Get In Touch</Link>
+            </Button>
+            <Button asChild size="lg" className="bg-cream text-medium-brown hover:bg-warm-beige">
+              <Link href="/products">Browse Products</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
