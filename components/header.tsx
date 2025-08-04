@@ -34,7 +34,7 @@ export default function Header() {
 
           {/* Desktop Navigation with enhanced hover effects */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item, index) => (
+            {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
