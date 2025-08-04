@@ -75,12 +75,12 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-light-beige animate-fade-in-up">
             <div className="flex flex-col space-y-4 pt-4">
-              {navigation.map((item, index) => (
+              {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    `text-medium-brown hover:text-medium-brown/80 transition-all duration-300 font-medium hover:transform hover:translate-x-2 animate-fade-in-left animate-delay-${(index + 1) * 100}`,
+                    `text-medium-brown hover:text-medium-brown/80 transition-all duration-300 font-medium hover:transform hover:translate-x-2 animate-fade-in-left`,
                     pathname === item.href && "text-medium-brown font-semibold",
                   )}
                   onClick={() => setMobileMenuOpen(false)}

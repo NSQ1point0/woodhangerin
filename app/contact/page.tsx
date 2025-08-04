@@ -21,7 +21,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display text-5xl font-bold text-medium-brown mb-6 animate-fade-in-up">Get In Touch</h1>
           <p className="text-xl text-medium-brown opacity-80 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
-            Ready to discuss your wooden hanger needs? We're here to help you find the perfect solution for your
+            Ready to discuss your wooden hanger needs? We&apos;re here to help you find the perfect solution for your
             requirements
           </p>
         </div>
@@ -209,7 +209,7 @@ export default function ContactPage() {
               <CardContent className="p-6">
                 <h3 className="font-semibold text-medium-brown mb-2">What is your minimum order quantity?</h3>
                 <p className="text-medium-brown opacity-80">
-                  Our minimum order quantity varies by product type. For standard hangers, it's typically 100 pieces,
+                  Our minimum order quantity varies by product type. For standard hangers, it&apos;s typically 100 pieces,
                   while custom orders may have different requirements.
                 </p>
               </CardContent>
