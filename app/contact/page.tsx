@@ -1,3 +1,4 @@
+"use client"
 import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -5,24 +6,58 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Package, Truck } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Contact WoodCraft Hangers - Get Your Custom Quote",
+const metadata: Metadata = {
+  title: "Contact WoodenHangerIn.com - Get Pricing & Bulk Quote",
   description:
-    "Contact WoodCraft Hangers for custom wooden hanger solutions. Get quotes, ask questions, or discuss your specific requirements with our expert team.",
+    "Contact WoodenHangerIn.com for wooden hanger pricing, bulk orders, and custom branding. Get quotes, request samples, and discuss your specifications.",
 }
 
+import { useState } from "react"
+
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false)
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    businessType: "",
+    inquiryType: "",
+    message: "",
+  })
+
+  const update = (key: string, value: string) => setForm((f) => ({ ...f, [key]: value }))
+
+  const submit = async () => {
+    if (!form.email || !form.message) return
+    try {
+      setLoading(true)
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error("Failed")
+      alert("Thanks! We'll get back to you shortly.")
+      setForm({ firstName: "", lastName: "", email: "", phone: "", company: "", businessType: "", inquiryType: "", message: "" })
+    } catch (e) {
+      alert("There was an error sending your inquiry. Please try again later.")
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-light-beige to-warm-beige">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-5xl font-bold text-medium-brown mb-6 animate-fade-in-up">Get In Touch</h1>
+          <h1 className="font-display text-5xl font-bold text-medium-brown mb-6 animate-fade-in-up">Get Pricing & Quote</h1>
           <p className="text-xl text-medium-brown opacity-80 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
-            Ready to discuss your wooden hanger needs? We&apos;re here to help you find the perfect solution for your
-            requirements
+            Contact us today to get pricing, request samples, and place your bulk order. Share your specifications, and let's create the perfect wooden hangers for your business!
           </p>
         </div>
       </section>
@@ -34,7 +69,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <Card className="border-none shadow-lg hover-glow animate-fade-in-left">
               <CardHeader>
-                <CardTitle className="font-display text-2xl text-medium-brown">Send Us a Message</CardTitle>
+                <CardTitle className="font-display text-2xl text-medium-brown">Request Quote & Samples</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
@@ -44,6 +79,8 @@ export default function ContactPage() {
                       id="firstName"
                       placeholder="John"
                       className="hover:border-medium-brown focus:border-medium-brown transition-colors"
+                      value={form.firstName}
+                      onChange={(e) => update("firstName", e.target.value)}
                     />
                   </div>
                   <div className="space-y-2 animate-fade-in-up animate-delay-200">
@@ -52,6 +89,8 @@ export default function ContactPage() {
                       id="lastName"
                       placeholder="Doe"
                       className="hover:border-medium-brown focus:border-medium-brown transition-colors"
+                      value={form.lastName}
+                      onChange={(e) => update("lastName", e.target.value)}
                     />
                   </div>
                 </div>
@@ -60,8 +99,10 @@ export default function ContactPage() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="john@company.com"
                     className="hover:border-medium-brown focus:border-medium-brown transition-colors"
+                    value={form.email}
+                    onChange={(e) => update("email", e.target.value)}
                   />
                 </div>
                 <div className="space-y-2 animate-fade-in-up animate-delay-400">
@@ -69,44 +110,70 @@ export default function ContactPage() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+91 98765 43210"
                     className="hover:border-medium-brown focus:border-medium-brown transition-colors"
+                    value={form.phone}
+                    onChange={(e) => update("phone", e.target.value)}
                   />
                 </div>
                 <div className="space-y-2 animate-fade-in-up animate-delay-500">
-                  <Label htmlFor="company">Company (Optional)</Label>
+                  <Label htmlFor="company">Company Name</Label>
                   <Input
                     id="company"
                     placeholder="Your Company Name"
                     className="hover:border-medium-brown focus:border-medium-brown transition-colors"
+                    value={form.company}
+                    onChange={(e) => update("company", e.target.value)}
                   />
                 </div>
                 <div className="space-y-2 animate-fade-in-up animate-delay-500">
-                  <Label htmlFor="inquiryType">Inquiry Type</Label>
-                  <Select>
+                  <Label htmlFor="businessType">Business Type</Label>
+                  <Select value={form.businessType} onValueChange={(v) => update("businessType", v)}>
                     <SelectTrigger className="hover:border-medium-brown focus:border-medium-brown transition-colors">
-                      <SelectValue placeholder="Select inquiry type" />
+                      <SelectValue placeholder="Select your business type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="quote">Request Quote</SelectItem>
-                      <SelectItem value="custom">Custom Order</SelectItem>
-                      <SelectItem value="wholesale">Wholesale Inquiry</SelectItem>
-                      <SelectItem value="general">General Question</SelectItem>
-                      <SelectItem value="support">Customer Support</SelectItem>
+                      <SelectItem value="garment-exporter">Garment Exporter</SelectItem>
+                      <SelectItem value="retail-shop">Retail Shop</SelectItem>
+                      <SelectItem value="showroom">Showroom</SelectItem>
+                      <SelectItem value="hotel">Hotel</SelectItem>
+                      <SelectItem value="tailor">Tailor</SelectItem>
+                      <SelectItem value="online-seller">Online Seller</SelectItem>
+                      <SelectItem value="wholesaler">Wholesaler</SelectItem>
+                      <SelectItem value="fashion-brand">Fashion Brand</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-2 animate-fade-in-up animate-delay-500">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="inquiryType">Inquiry Type</Label>
+                  <Select value={form.inquiryType} onValueChange={(v) => update("inquiryType", v)}>
+                    <SelectTrigger className="hover:border-medium-brown focus:border-medium-brown transition-colors">
+                      <SelectValue placeholder="Select inquiry type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="bulk-quote">Bulk Order Quote</SelectItem>
+                      <SelectItem value="sample-request">Sample Request</SelectItem>
+                      <SelectItem value="custom-branding">Custom Branding</SelectItem>
+                      <SelectItem value="private-label">Private Label</SelectItem>
+                      <SelectItem value="pricing">Pricing Inquiry</SelectItem>
+                      <SelectItem value="general">General Question</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2 animate-fade-in-up animate-delay-500">
+                  <Label htmlFor="message">Requirements & Specifications</Label>
                   <Textarea
                     id="message"
-                    placeholder="Tell us about your requirements, quantity needed, timeline, or any specific questions you have..."
+                    placeholder="Tell us about your requirements: quantity needed, wood type preference, finish options, custom branding needs, timeline, or any specific questions..."
                     rows={5}
                     className="hover:border-medium-brown focus:border-medium-brown transition-colors"
+                    value={form.message}
+                    onChange={(e) => update("message", e.target.value)}
                   />
                 </div>
-                <Button className="w-full bg-medium-brown hover:bg-medium-brown/90 text-cream hover-scale hover-glow group animate-fade-in-up animate-delay-600">
-                  <span className="group-hover:scale-105 transition-transform duration-200">Send Message</span>
+                <Button onClick={submit} disabled={loading || !form.email || !form.message} className="w-full bg-medium-brown hover:bg-medium-brown/90 text-cream hover-scale hover-glow group animate-fade-in-up animate-delay-600">
+                  <span className="group-hover:scale-105 transition-transform duration-200">{loading ? "Sending..." : "Send Inquiry"}</span>
                 </Button>
               </CardContent>
             </Card>
@@ -120,26 +187,26 @@ export default function ContactPage() {
                     {[
                       {
                         icon: MapPin,
-                        title: "Address",
-                        content: "123 Craftsman Lane\nWoodville, WV 12345\nUnited States",
+                        title: "Manufacturing Facility",
+                        content: "WoodenHangerIn.com\nManufacturing Unit\nIndia",
                         bg: "bg-medium-brown",
                       },
                       {
                         icon: Phone,
                         title: "Phone",
-                        content: "Main: +1 (555) 123-4567\nSales: +1 (555) 123-4568",
+                        content: "Sales: +91 98765 43210\nSupport: +91 98765 43211",
                         bg: "bg-sage-green",
                       },
                       {
                         icon: Mail,
                         title: "Email",
-                        content: "info@woodcraft-hangers.com\nsales@woodcraft-hangers.com",
+                        content: "info@woodenhangerin.com\nsales@woodenhangerin.com",
                         bg: "bg-warm-beige",
                       },
                       {
                         icon: Clock,
                         title: "Business Hours",
-                        content: "Monday - Friday: 8:00 AM - 6:00 PM\nSaturday: 9:00 AM - 4:00 PM\nSunday: Closed",
+                        content: "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 9:00 AM - 4:00 PM\nSunday: Closed",
                         bg: "bg-light-beige",
                       },
                     ].map((item, index) => (
@@ -169,15 +236,16 @@ export default function ContactPage() {
               <Card className="border-none shadow-lg bg-medium-brown text-cream hover-glow animate-fade-in-right animate-delay-400 group">
                 <CardContent className="p-8">
                   <h3 className="font-display text-2xl font-semibold mb-4 group-hover:scale-105 transition-transform duration-300">
-                    Why Choose Us?
+                    Why Partner With Us?
                   </h3>
                   <ul className="space-y-3">
                     {[
-                      "20+ years of experience",
-                      "Custom solutions available",
-                      "Sustainable materials",
-                      "Competitive wholesale pricing",
-                      "Fast turnaround times",
+                      "Direct factory pricing",
+                      "Flexible MOQ options",
+                      "Custom branding available",
+                      "Nationwide shipping",
+                      "Fast dispatch & delivery",
+                      "Quality assurance guarantee",
                     ].map((item, index) => (
                       <li
                         key={index}
@@ -201,43 +269,55 @@ export default function ContactPage() {
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl font-bold text-medium-brown mb-4">Frequently Asked Questions</h2>
             <p className="text-lg text-medium-brown opacity-80 max-w-2xl mx-auto">
-              Quick answers to common questions about our products and services
+              Quick answers to common questions about our products and bulk ordering
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="border-none shadow-lg">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-medium-brown mb-2">What is your minimum order quantity?</h3>
+                <h3 className="font-semibold text-medium-brown mb-2">What is your minimum order quantity (MOQ)?</h3>
                 <p className="text-medium-brown opacity-80">
-                  Our minimum order quantity varies by product type. For standard hangers, it&apos;s typically 100 pieces,
-                  while custom orders may have different requirements.
+                  We offer flexible MOQ options. For standard hangers, minimum order is typically 100 pieces, while custom branding orders may have different requirements. Contact us for specific details.
                 </p>
               </CardContent>
             </Card>
             <Card className="border-none shadow-lg">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-dark-brown mb-2">Do you offer custom branding?</h3>
+                <h3 className="font-semibold text-dark-brown mb-2">Do you offer custom branding and private labeling?</h3>
                 <p className="text-medium-brown">
-                  Yes! We offer logo engraving, custom colors, and personalized packaging options to match your brand
-                  requirements.
+                  Yes! We offer logo printing, private labeling, and branding services to elevate your brand identity. Custom colors and packaging options available.
                 </p>
               </CardContent>
             </Card>
             <Card className="border-none shadow-lg">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-dark-brown mb-2">What is your typical lead time?</h3>
+                <h3 className="font-semibold text-dark-brown mb-2">What wood types and finishes do you offer?</h3>
                 <p className="text-medium-brown">
-                  Standard orders typically ship within 2-3 weeks, while custom orders may take 4-6 weeks depending on
-                  complexity and quantity.
+                  We offer Deodar, Neem, Steamed Beech, Beech, and Mango wood. Finishes include Natural, Black, White, Brown, Dark Brown, Polished, Walnut, Whitewashed, and Matte.
                 </p>
               </CardContent>
             </Card>
             <Card className="border-none shadow-lg">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-dark-brown mb-2">Do you ship internationally?</h3>
+                <h3 className="font-semibold text-dark-brown mb-2">Do you ship nationwide across India?</h3>
                 <p className="text-medium-brown">
-                  Yes, we ship worldwide. International shipping costs and delivery times vary by destination. Contact
-                  us for specific quotes.
+                  Yes, we provide nationwide shipping across India with fast dispatch and reliable delivery. Contact us for shipping costs and delivery timelines.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border-none shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-dark-brown mb-2">Can I request samples before placing a bulk order?</h3>
+                <p className="text-medium-brown">
+                  Absolutely! We encourage sample requests to ensure you're satisfied with our quality. Contact us to request samples of your preferred wood type and finish.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border-none shadow-lg">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-dark-brown mb-2">What is your typical lead time for bulk orders?</h3>
+                <p className="text-medium-brown">
+                  Standard bulk orders typically ship within 2-3 weeks, while custom branding orders may take 4-6 weeks depending on complexity and quantity.
                 </p>
               </CardContent>
             </Card>

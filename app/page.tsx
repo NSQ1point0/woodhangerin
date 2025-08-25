@@ -3,12 +3,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Star, Award, Leaf, Users } from "lucide-react"
+import { Star, Award, Leaf, Users, Package, Truck, Shield, Store, Building2, Hotel, Scissors, ShoppingCart, Shirt, BriefcaseBusiness } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Premium Wooden Hangers Manufacturing | WoodCraft Hangers",
+const metadata: Metadata = {
+  title: "WoodenHangerIn.com | Premium Wooden Hangers – Manufacturer & Bulk Supplier",
   description:
-    "Discover our premium wooden hangers crafted with precision. Sustainable, durable, and elegant storage solutions for your wardrobe. Custom manufacturing available.",
+    "Premium wooden hangers manufacturer and bulk supplier across India. High-quality solid wood hangers with custom branding, bulk orders, and nationwide shipping.",
 }
 
 export default function HomePage() {
@@ -18,19 +18,19 @@ export default function HomePage() {
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-light-beige to-warm-beige overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-            alt="Wooden hangers craftsmanship"
+            src="/banner.jpg"
+            alt="Premium wooden hangers craftsmanship"
             fill
-            className="object-cover opacity-20 transition-transform duration-700 hover:scale-105"
+            className="object-cover opacity-50 transition-transform duration-700"
             priority
           />
         </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in-up">
           <h1 className="font-display text-5xl md:text-7xl font-bold text-medium-brown mb-6 animate-float">
-            WoodCraft Hangers
+            Wooden Hanger In
           </h1>
           <p className="text-xl md:text-2xl text-medium-brown mb-8 max-w-2xl mx-auto opacity-80 animate-fade-in-up animate-delay-200">
-            Premium wooden hangers crafted with precision, sustainability, and timeless elegance
+            Premium Wooden Hangers – Manufacturer & Bulk Supplier Across India
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-400">
             <Button
@@ -48,8 +48,8 @@ export default function HomePage() {
               size="lg"
               className="border-medium-brown text-medium-brown hover:bg-medium-brown hover:text-cream bg-transparent hover-lift group"
             >
-              <Link href="/about">
-                <span className="group-hover:scale-105 transition-transform duration-200">Our Story</span>
+              <Link href="/contact">
+                <span className="group-hover:scale-105 transition-transform duration-200">Get Quote</span>
               </Link>
             </Button>
           </div>
@@ -60,38 +60,38 @@ export default function HomePage() {
       <section className="py-20 bg-cream">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="font-display text-4xl font-bold text-medium-brown mb-4">Why Choose WoodCraft Hangers?</h2>
+            <h2 className="font-display text-4xl font-bold text-medium-brown mb-4">Why Choose Our Wooden Hangers?</h2>
             <p className="text-lg text-medium-brown opacity-80 max-w-2xl mx-auto">
-              Our commitment to quality, sustainability, and craftsmanship sets us apart in the industry
+              Crafted from high-quality solid wood, our hangers combine durability with elegance for garment showrooms, boutiques, hotels, fashion brands, and exporters
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: Leaf,
-                title: "Sustainable",
-                desc: "Eco-friendly materials and responsible manufacturing processes",
+                icon: Shield,
+                title: "Superior Material",
+                desc: "Made from select woods: Deodar, Neem, Steamed Beech, or Mango wood—customizable to your preference",
                 bg: "bg-sage-green",
                 delay: "animate-delay-100",
               },
               {
                 icon: Award,
-                title: "Premium Quality",
-                desc: "Handcrafted with attention to detail and superior materials",
+                title: "Variety of Finishes",
+                desc: "Natural, Black, White, Brown, Dark Brown, Polished, Walnut, Whitewashed, Matte, and more",
                 bg: "bg-medium-brown",
                 delay: "animate-delay-200",
               },
               {
-                icon: Users,
-                title: "Custom Solutions",
-                desc: "Tailored designs to meet your specific requirements",
+                icon: Star,
+                title: "Durable Hooks",
+                desc: "360° rotating, anti-rust chrome or gold-plated hooks for convenience and longevity",
                 bg: "bg-warm-beige",
                 delay: "animate-delay-300",
               },
               {
-                icon: Star,
-                title: "Trusted Brand",
-                desc: "Over 20 years of excellence in wooden hanger manufacturing",
+                icon: Package,
+                title: "Multiple Designs",
+                desc: "Flat, Curved, Notched, With Clips, Suit Hangers, Coat Hangers, and tailored shapes",
                 bg: "bg-light-beige",
                 delay: "animate-delay-400",
               },
@@ -121,29 +121,29 @@ export default function HomePage() {
       <section className="py-20 bg-light-beige">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="font-display text-4xl font-bold text-medium-brown mb-4">Our Featured Products</h2>
+            <h2 className="font-display text-4xl font-bold text-medium-brown mb-4">Key Product Highlights</h2>
             <p className="text-lg text-medium-brown opacity-80 max-w-2xl mx-auto">
-              Discover our range of premium wooden hangers designed for every need
+              Perfect for shirts, pants, suits, coats, lehengas, sarees, jackets, and heavy clothing
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Premium Suit Hangers",
-                desc: "Elegant hangers designed for suits and formal wear",
-                img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Direct Manufacturing",
+                desc: "Competitive factory pricing with in-house production and rigorous quality controls",
+                img: "/prod-1.jpg",
                 delay: "animate-delay-100",
               },
               {
-                title: "Dress Hangers",
-                desc: "Specially designed for dresses and delicate garments",
-                img: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Strong & Termite-Resistant",
+                desc: "High-quality solid wood that lasts with smooth finish protecting garments from snags",
+                img: "/prod-2.jpg",
                 delay: "animate-delay-200",
               },
               {
-                title: "Custom Solutions",
-                desc: "Bespoke hangers tailored to your specific needs",
-                img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Custom Branding",
+                desc: "Logo printing, private labeling, and branding services to elevate your brand identity",
+                img: "/prod-3.jpg",
                 delay: "animate-delay-300",
               },
             ].map((product, index) => (
@@ -172,12 +172,49 @@ export default function HomePage() {
                     variant="outline"
                     className="border-medium-brown text-medium-brown hover:bg-medium-brown hover:text-cream bg-transparent hover-scale group/btn"
                   >
-                    <Link href={index === 2 ? "/contact" : "/products"}>
-                      <span className="group-hover/btn:scale-105 transition-transform duration-200">
-                        {index === 2 ? "Get Quote" : "Learn More"}
-                      </span>
+                    <Link href="/contact">
+                      <span className="group-hover/btn:scale-105 transition-transform duration-200">Get Quote</span>
                     </Link>
                   </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Perfect For Section */}
+      <section className="py-20 bg-cream">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl font-bold text-medium-brown mb-4">Perfect For</h2>
+            <p className="text-lg text-medium-brown opacity-80 max-w-2xl mx-auto">
+              Garment exporters, retail shops, showrooms, hotels, tailors, online sellers, and wholesalers looking for quality wooden hanger solutions
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { label: "Garment Exporters", icon: Package },
+              { label: "Retail Shops", icon: Store },
+              { label: "Showrooms", icon: Building2 },
+              { label: "Hotels", icon: Hotel },
+              { label: "Tailors", icon: Scissors },
+              { label: "Online Sellers", icon: ShoppingCart },
+              { label: "Wholesalers", icon: BriefcaseBusiness },
+              { label: "Fashion Brands", icon: Shirt },
+            ].map((category, index) => (
+              <Card
+                key={index}
+                className="text-center border-none shadow-md bg-white hover-lift hover-glow animate-fade-in-up group cursor-pointer"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-medium-brown rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <category.icon className="w-6 h-6 text-cream" />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold text-medium-brown group-hover:text-medium-brown/80 transition-colors">
+                    {category.label}
+                  </h3>
                 </CardContent>
               </Card>
             ))}
@@ -188,9 +225,9 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 bg-medium-brown text-cream">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-display text-4xl font-bold mb-4">Ready to Elevate Your Wardrobe?</h2>
+          <h2 className="font-display text-4xl font-bold mb-4">Ready to Partner With WoodenHangerIn.com?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Contact us today to discuss your wooden hanger needs and discover how we can help you
+            Contact us today to get pricing, request samples, and place your bulk order. Share your specifications, and let's create the perfect wooden hangers for your business!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

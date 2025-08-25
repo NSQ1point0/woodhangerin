@@ -28,7 +28,7 @@ export default function Header() {
               <div className="w-4 h-4 bg-cream rounded-full group-hover:scale-110 transition-transform duration-300"></div>
             </div>
             <span className="font-display text-xl font-bold text-medium-brown group-hover:text-medium-brown/80 transition-colors">
-              WoodCraft Hangers
+              WoodenHangerIn.com
             </span>
           </Link>
 
