@@ -1,15 +1,15 @@
-import type { Metadata } from "next"
+// import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Star, Award, Leaf, Users, Package, Truck, Shield, Store, Building2, Hotel, Scissors, ShoppingCart, Shirt, BriefcaseBusiness } from "lucide-react"
+import { Star, Award, Package, Shield, Store, Building2, Hotel, Scissors, ShoppingCart, Shirt, BriefcaseBusiness } from "lucide-react"
 
-const metadata: Metadata = {
-  title: "WoodenHangerIn.com | Premium Wooden Hangers – Manufacturer & Bulk Supplier",
-  description:
-    "Premium wooden hangers manufacturer and bulk supplier across India. High-quality solid wood hangers with custom branding, bulk orders, and nationwide shipping.",
-}
+// const metadata: Metadata = {
+//   title: "WoodenHangerIn.com | Premium Wooden Hangers – Manufacturer & Bulk Supplier",
+//   description:
+//     "Premium wooden hangers manufacturer and bulk supplier across India. High-quality solid wood hangers with custom branding, bulk orders, and nationwide shipping.",
+// }
 
 export default function HomePage() {
   return (
@@ -227,7 +227,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-display text-4xl font-bold mb-4">Ready to Partner With WoodenHangerIn.com?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Contact us today to get pricing, request samples, and place your bulk order. Share your specifications, and let's create the perfect wooden hangers for your business!
+            Contact us today to get pricing, request samples, and place your bulk order. Share your specifications, and let&apos;s create the perfect wooden hangers for your business!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

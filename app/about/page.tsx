@@ -1,13 +1,13 @@
-import type { Metadata } from "next"
+// import type { Metadata } from "next"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Award, Users, Leaf, Clock, Factory, Truck, Shield } from "lucide-react"
+import { Award, Users, Leaf, Factory, Truck, Shield } from "lucide-react"
 
-const metadata: Metadata = {
-  title: "About WoodenHangerIn.com - Manufacturer & Bulk Supplier",
-  description:
-    "Learn about WoodenHangerIn.com's manufacturing capabilities and commitment to quality. Direct factory pricing, bulk orders, and nationwide shipping across India.",
-}
+// const metadata: Metadata = {
+//   title: "About WoodenHangerIn.com - Manufacturer & Bulk Supplier",
+//   description:
+//     "Learn about WoodenHangerIn.com's manufacturing capabilities and commitment to quality. Direct factory pricing, bulk orders, and nationwide shipping across India.",
+// }
 
 export default function AboutPage() {
   return (

@@ -1,15 +1,15 @@
-import type { Metadata } from "next"
+// import type { Metadata } from "next"
 import path from "path"
 import fs from "fs"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ProductGrid from "../../components/product-grid"
 
-const metadata: Metadata = {
-  title: "Premium Wooden Hangers Products | WoodenHangerIn.com",
-  description:
-    "Explore our complete range of premium wooden hangers. From suit hangers to dress hangers with custom branding and bulk orders available.",
-}
+// const metadata: Metadata = {
+//   title: "Premium Wooden Hangers Products | WoodenHangerIn.com",
+//   description:
+//     "Explore our complete range of premium wooden hangers. From suit hangers to dress hangers with custom branding and bulk orders available.",
+// }
 
 type ProductFromPublic = {
   name: string

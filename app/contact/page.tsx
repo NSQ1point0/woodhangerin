@@ -1,18 +1,18 @@
 "use client"
-import type { Metadata } from "next"
+// import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { MapPin, Phone, Mail, Clock, Package, Truck } from "lucide-react"
+import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
-const metadata: Metadata = {
-  title: "Contact WoodenHangerIn.com - Get Pricing & Bulk Quote",
-  description:
-    "Contact WoodenHangerIn.com for wooden hanger pricing, bulk orders, and custom branding. Get quotes, request samples, and discuss your specifications.",
-}
+// const metadata: Metadata = {
+//   title: "Contact WoodenHangerIn.com - Get Pricing & Bulk Quote",
+//   description:
+//     "Contact WoodenHangerIn.com for wooden hanger pricing, bulk orders, and custom branding. Get quotes, request samples, and discuss your specifications.",
+// }
 
 import { useState } from "react"
 
@@ -44,6 +44,7 @@ export default function ContactPage() {
       alert("Thanks! We'll get back to you shortly.")
       setForm({ firstName: "", lastName: "", email: "", phone: "", company: "", businessType: "", inquiryType: "", message: "" })
     } catch (e) {
+      console.log(e)
       alert("There was an error sending your inquiry. Please try again later.")
     } finally {
       setLoading(false)
@@ -57,7 +58,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display text-5xl font-bold text-medium-brown mb-6 animate-fade-in-up">Get Pricing & Quote</h1>
           <p className="text-xl text-medium-brown opacity-80 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
-            Contact us today to get pricing, request samples, and place your bulk order. Share your specifications, and let's create the perfect wooden hangers for your business!
+            Contact us today to get pricing, request samples, and place your bulk order. Share your specifications, and let&apos;s create the perfect wooden hangers for your business!
           </p>
         </div>
       </section>
@@ -309,7 +310,7 @@ export default function ContactPage() {
               <CardContent className="p-6">
                 <h3 className="font-semibold text-dark-brown mb-2">Can I request samples before placing a bulk order?</h3>
                 <p className="text-medium-brown">
-                  Absolutely! We encourage sample requests to ensure you're satisfied with our quality. Contact us to request samples of your preferred wood type and finish.
+                  Absolutely! We encourage sample requests to ensure you&apos;re satisfied with our quality. Contact us to request samples of your preferred wood type and finish.
                 </p>
               </CardContent>
             </Card>
