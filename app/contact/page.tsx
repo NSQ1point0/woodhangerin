@@ -188,19 +188,19 @@ export default function ContactPage() {
                       {
                         icon: MapPin,
                         title: "Manufacturing Facility",
-                        content: "WoodenHangerIn.com\nManufacturing Unit\nIndia",
+                        content: "shop no_10,Road no_15,Indira nagar,baiganwadi,Govandi, Mumbai-400043",
                         bg: "bg-medium-brown",
                       },
                       {
                         icon: Phone,
                         title: "Phone",
-                        content: "Sales: +91 98765 43210\nSupport: +91 98765 43211",
+                        content: "9987861269 / 9324543134",
                         bg: "bg-sage-green",
                       },
                       {
                         icon: Mail,
                         title: "Email",
-                        content: "info@woodenhangerin.com\nsales@woodenhangerin.com",
+                        content: "info@woodenhangerin.com",
                         bg: "bg-warm-beige",
                       },
                       {

@@ -65,9 +65,9 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Contact Info</h3>
             <div className="space-y-3">
               {[
-                { icon: MapPin, text: "123 Craftsman Lane, Woodville, WV 12345" },
-                { icon: Phone, text: "+1 (555) 123-4567" },
-                { icon: Mail, text: "info@woodcraft-hangers.com" },
+                { icon: MapPin, text: "shop no 10,Road no 15,Indira nagar,baiganwadi,Govandi, Mumbai-400043" },
+                { icon: Phone, text: "9987861269 / 9324543134" },
+                { icon: Mail, text: "info@woodenhangerin.com" },
               ].map((item, index) => (
                 <div
                   key={index}
@@ -83,7 +83,7 @@ export default function Footer() {
 
         <div className="border-t border-sage-green mt-8 pt-8 text-center animate-fade-in-up animate-delay-600">
           <p className="text-light-beige hover:text-cream transition-colors cursor-default">
-            © 2024 WoodCraft Hangers. All rights reserved. |
+            © 2025 WoodCraft Hangers. All rights reserved. |
             <span className="hover:text-cream transition-colors cursor-pointer"> Privacy Policy</span> |
             <span className="hover:text-cream transition-colors cursor-pointer"> Terms of Service</span>
           </p>
